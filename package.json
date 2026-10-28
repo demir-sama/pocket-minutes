@@ -13,7 +13,7 @@
     "bench": "node scripts/bench.mjs",
     "test": "node --test test/*.test.mjs",
     "build:replay": "node scripts/build-replay.mjs",
-    "video": "node scripts/make-video.mjs"
+    "video": "bash scripts/record-video.sh"
   },
   "dependencies": {
     "@qvac/sdk": "0.22.0"

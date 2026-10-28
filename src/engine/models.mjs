@@ -2,7 +2,7 @@
 import * as q from '@qvac/sdk';
 
 export const PROFILES = {
-  // Default: diarized transcript (MOSS) + Qwen3-4B for minutes. ~5 GB of models on disk.
+  // Default: diarized transcript (MOSS) + Qwen3-4B for minutes. ~3.8 GB of models on disk.
   balanced: {
     label: 'Balanced',
     asrDraft: { name: 'WHISPER_EN_BASE_Q8_0', src: q.WHISPER_EN_BASE_Q8_0, type: 'whisper' },
