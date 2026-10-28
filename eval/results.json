@@ -1,0 +1,319 @@
+{
+  "generatedAt": "2026-10-28T07:43:21.569Z",
+  "sample": "launch-sync",
+  "sdk": "0.22.0",
+  "device": {
+    "cpu": "Intel(R) Xeon(R) Processor",
+    "cores": 8,
+    "memGB": 16.8,
+    "os": "Linux 6.12.94+",
+    "gpu": "none (CPU only)"
+  },
+  "runs": [
+    {
+      "profile": "balanced",
+      "models": [
+        {
+          "name": "WHISPER_EN_BASE_Q8_0",
+          "size": 81781811,
+          "sha256": "a4d4a0768075e13cfd7e19df3ae2dbc4a68d37d36a7dad45e8410c9a34f8c87e",
+          "params": "",
+          "quantization": "q8_0"
+        },
+        {
+          "name": "MOSS_TRANSCRIBE_DIARIZE_Q8_0",
+          "size": 980100416,
+          "sha256": "c55e9e912a5e934f7fb9dc74e0d8b0e495c5fe6737bcffe0f325759417c4432c",
+          "params": "",
+          "quantization": "q8_0"
+        },
+        {
+          "name": "QWEN3_4B_INST_Q4_K_M",
+          "size": 2497280256,
+          "sha256": "7485fe6f11af29433bc51cab58009521f205840f5b4ae3a32fa7f92e8534fdf5",
+          "params": "4B",
+          "quantization": "q4_K_M"
+        },
+        {
+          "name": "EMBEDDINGGEMMA_300M_Q4_0",
+          "size": 277852192,
+          "sha256": "edc6015cb15694c27be7d1d33f1bc015db9a358ff51ed524628c027504907ba9",
+          "params": "300M",
+          "quantization": "q4_0"
+        }
+      ],
+      "audioSeconds": 137.12,
+      "totalMs": 167323,
+      "realtimeFactor": 1.22,
+      "stageMs": {
+        "draft": 5032,
+        "diarize": 62040,
+        "minutes": 89034,
+        "index": 3125
+      },
+      "peakResidentMB": 8148,
+      "asr": {
+        "draft": {
+          "model": "WHISPER_EN_BASE_Q8_0",
+          "wer": 0.0265,
+          "refWords": 378,
+          "edits": 10
+        },
+        "final": {
+          "model": "MOSS_TRANSCRIBE_DIARIZE_Q8_0",
+          "wer": 0.0026,
+          "refWords": 378,
+          "edits": 1
+        }
+      },
+      "keyFacts": {
+        "kept": 8,
+        "total": 8,
+        "missing": []
+      },
+      "speakersFound": 3,
+      "speakerNames": {
+        "S02": "Marcus",
+        "S01": "Priya",
+        "S03": "Hannah"
+      },
+      "minutes": {
+        "decisions": {
+          "recall": 0.5,
+          "precision": 0.4,
+          "hit": 2,
+          "gt": 4,
+          "extracted": 5,
+          "detail": [
+            {
+              "gt": "Ship version 3 on Tuesday 17 November, conditional on payments failure rate below 1% by Friday 13 November",
+              "matched": null,
+              "score": 0.38
+            },
+            {
+              "gt": "Raise the pro plan from $9 to $12 per month",
+              "matched": "The pro plan price is raised to twelve dollars a month with a six-month grandfathering period for existing subscribers.",
+              "score": 0.71
+            },
+            {
+              "gt": "Keep the $9 price for existing subscribers for six months",
+              "matched": null,
+              "score": 0.17
+            },
+            {
+              "gt": "Reduce password reset link validity from 24 hours to 15 minutes before launch",
+              "matched": "The password reset link validity is reduced to fifteen minutes before launch.",
+              "score": 0.73
+            }
+          ]
+        },
+        "actions": {
+          "recall": 0.6,
+          "precision": 1,
+          "hit": 3,
+          "gt": 5,
+          "extracted": 3,
+          "detail": [
+            {
+              "gt": "Fix the payments retry bug and report the failure rate",
+              "matched": "Fix the payment's retry bug and report the failure rate to the team by Friday, the thirteenth",
+              "score": 1
+            },
+            {
+              "gt": "Draft the customer email about the grandfathered price and send to Priya for review",
+              "matched": "Draft the customer email about the grandfathered price",
+              "score": 0.67
+            },
+            {
+              "gt": "Merge the password reset link change (15 minutes)",
+              "matched": null,
+              "score": 0
+            },
+            {
+              "gt": "Add a line about the second link request to the help center",
+              "matched": null,
+              "score": 0
+            },
+            {
+              "gt": "Book the launch day war room and share the invite",
+              "matched": "Book the launch day war room for ten in the morning on the seventeenth",
+              "score": 0.71
+            }
+          ]
+        },
+        "risks": {
+          "recall": 0.5,
+          "precision": 0.25,
+          "hit": 1,
+          "gt": 2,
+          "extracted": 4,
+          "detail": [
+            {
+              "gt": "Payments screen fails on about 4% of test runs",
+              "matched": "The payment screen fails on about four percent of test runs, which could delay the release.",
+              "score": 0.86
+            },
+            {
+              "gt": "Users on slow connections may need to request a second reset link",
+              "matched": null,
+              "score": 0.13
+            }
+          ]
+        },
+        "overall": {
+          "recall": 0.5454545454545454,
+          "precision": 0.5,
+          "hit": 6,
+          "gt": 11,
+          "extracted": 12
+        }
+      },
+      "groundedDrops": 4
+    },
+    {
+      "profile": "lite",
+      "models": [
+        {
+          "name": "WHISPER_EN_BASE_Q8_0",
+          "size": 81781811,
+          "sha256": "a4d4a0768075e13cfd7e19df3ae2dbc4a68d37d36a7dad45e8410c9a34f8c87e",
+          "params": "",
+          "quantization": "q8_0"
+        },
+        {
+          "name": "QWEN3_1_7B_INST_Q4",
+          "size": 1056782912,
+          "sha256": "c876f159707a4e4f70e045106c69db15bfc935a4981706fd4f65c6e7ea1e81c5",
+          "params": "1.7B",
+          "quantization": "q4"
+        },
+        {
+          "name": "EMBEDDINGGEMMA_300M_Q4_0",
+          "size": 277852192,
+          "sha256": "edc6015cb15694c27be7d1d33f1bc015db9a358ff51ed524628c027504907ba9",
+          "params": "300M",
+          "quantization": "q4_0"
+        }
+      ],
+      "audioSeconds": 137.12,
+      "totalMs": 45044,
+      "realtimeFactor": 0.33,
+      "stageMs": {
+        "draft": 4517,
+        "minutes": 31950,
+        "index": 3091
+      },
+      "peakResidentMB": 5002,
+      "asr": {
+        "draft": {
+          "model": "WHISPER_EN_BASE_Q8_0",
+          "wer": 0.0265,
+          "refWords": 378,
+          "edits": 10
+        }
+      },
+      "keyFacts": {
+        "kept": 6,
+        "total": 8,
+        "missing": [
+          "twelve dollars",
+          "nine dollars"
+        ]
+      },
+      "speakersFound": 1,
+      "speakerNames": {},
+      "minutes": {
+        "decisions": {
+          "recall": 0.5,
+          "precision": 0.5,
+          "hit": 2,
+          "gt": 4,
+          "extracted": 4,
+          "detail": [
+            {
+              "gt": "Ship version 3 on Tuesday 17 November, conditional on payments failure rate below 1% by Friday 13 November",
+              "matched": null,
+              "score": 0.38
+            },
+            {
+              "gt": "Raise the pro plan from $9 to $12 per month",
+              "matched": "The pro plan is raised from $9 to $12 per month.",
+              "score": 0.86
+            },
+            {
+              "gt": "Keep the $9 price for existing subscribers for six months",
+              "matched": "Current subscribers will continue to be charged $9 for six months.",
+              "score": 0.5
+            },
+            {
+              "gt": "Reduce password reset link validity from 24 hours to 15 minutes before launch",
+              "matched": null,
+              "score": 0.45
+            }
+          ]
+        },
+        "actions": {
+          "recall": 0,
+          "precision": 0,
+          "hit": 0,
+          "gt": 5,
+          "extracted": 6,
+          "detail": [
+            {
+              "gt": "Fix the payments retry bug and report the failure rate",
+              "matched": null,
+              "score": 0
+            },
+            {
+              "gt": "Draft the customer email about the grandfathered price and send to Priya for review",
+              "matched": null,
+              "score": 0
+            },
+            {
+              "gt": "Merge the password reset link change (15 minutes)",
+              "matched": null,
+              "score": 0
+            },
+            {
+              "gt": "Add a line about the second link request to the help center",
+              "matched": null,
+              "score": 0
+            },
+            {
+              "gt": "Book the launch day war room and share the invite",
+              "matched": null,
+              "score": 0
+            }
+          ]
+        },
+        "risks": {
+          "recall": 1,
+          "precision": 0.6666666666666666,
+          "hit": 2,
+          "gt": 2,
+          "extracted": 3,
+          "detail": [
+            {
+              "gt": "Payments screen fails on about 4% of test runs",
+              "matched": "The payment screen fails on about 4% of test runs, which could impact the release date.",
+              "score": 0.86
+            },
+            {
+              "gt": "Users on slow connections may need to request a second reset link",
+              "matched": "Some users on slow connections may need to request a second link, which introduces a risk.",
+              "score": 0.88
+            }
+          ]
+        },
+        "overall": {
+          "recall": 0.36363636363636365,
+          "precision": 0.3076923076923077,
+          "hit": 4,
+          "gt": 11,
+          "extracted": 13
+        }
+      },
+      "groundedDrops": 3
+    }
+  ]
+}

@@ -1,41 +1,117 @@
 {
   "title": "Q4 launch readiness sync",
   "note": "Fictional meeting, synthetic voices (Kokoro TTS), written for this project. No real people or companies.",
-  "voices": { "Priya": "af_bella", "Marcus": "am_michael", "Hannah": "bf_emma" },
+  "voices": {
+    "Priya": "af_bella",
+    "Marcus": "am_michael",
+    "Hannah": "bf_emma"
+  },
   "turns": [
-    ["Priya", "Okay, let's get started. This is the launch readiness sync for the Lumen mobile app, version three. We have three things to settle today: the release date, the pricing change, and the open security finding."],
-    ["Marcus", "Thanks Priya. On the release date, engineering is confident about Tuesday, the seventeenth of November. The only blocker is the payments screen, which still fails on about four percent of test runs."],
-    ["Hannah", "Support can handle that date. But I want a decision on one thing: we should not launch on a Friday, and the seventeenth is a Tuesday, so that works for me."],
-    ["Priya", "Good. So the decision is, we ship version three on Tuesday the seventeenth of November, as long as the payments failure rate drops below one percent by the Friday before. Marcus, you own that."],
-    ["Marcus", "Agreed. I will fix the payments retry bug and report the failure rate to the team by Friday the thirteenth."],
-    ["Hannah", "Now pricing. The proposal is to raise the pro plan from nine dollars to twelve dollars a month. Early survey data shows only two percent of users would cancel at that price."],
-    ["Priya", "That's acceptable to me. But I don't want existing customers surprised, so we keep the nine dollar price for current subscribers for six months."],
-    ["Hannah", "Understood. I will draft the customer email about the grandfathered price and send it to Priya for review by Wednesday the eleventh."],
-    ["Marcus", "One more issue. The security audit found that the password reset link stays valid for twenty four hours. The auditor recommends fifteen minutes."],
-    ["Priya", "That one is non negotiable. We reduce it to fifteen minutes before launch. Marcus, can your team do it?"],
-    ["Marcus", "Yes, it is a small change. I will have it merged by Monday the ninth of November. The risk is that some users on slow connections may need to request a second link."],
-    ["Priya", "Fine, we accept that risk. Hannah, please add a line about it to the help center. Last thing, who is booking the launch day war room?"],
-    ["Hannah", "I will book it for ten in the morning on the seventeenth, and I will share the invite today."],
-    ["Priya", "Great. To recap: ship on the seventeenth of November, pro plan goes to twelve dollars with six months grandfathering, and the reset link drops to fifteen minutes. Thanks everyone."]
+    [
+      "Priya",
+      "Okay, let's get started. This is the launch readiness sync for the Lumen mobile app, version three. We have three things to settle today: the release date, the pricing change, and the open security finding."
+    ],
+    [
+      "Marcus",
+      "Thanks Priya. On the release date, engineering is confident about Tuesday, the seventeenth of November. The only blocker is the payments screen, which still fails on about four percent of test runs."
+    ],
+    [
+      "Hannah",
+      "Support can handle that date. But I want a decision on one thing: we should not launch on a Friday, and the seventeenth is a Tuesday, so that works for me."
+    ],
+    [
+      "Priya",
+      "Good. So the decision is, we ship version three on Tuesday the seventeenth of November, as long as the payments failure rate drops below one percent by the Friday before. Marcus, you own that."
+    ],
+    [
+      "Marcus",
+      "Agreed. I will fix the payments retry bug and report the failure rate to the team by Friday the thirteenth."
+    ],
+    [
+      "Hannah",
+      "Now pricing. The proposal is to raise the pro plan from nine dollars to twelve dollars a month. Early survey data shows only two percent of users would cancel at that price."
+    ],
+    [
+      "Priya",
+      "That's acceptable to me. But I don't want existing customers surprised, so we keep the nine dollar price for current subscribers for six months."
+    ],
+    [
+      "Hannah",
+      "Understood. I will draft the customer email about the grandfathered price and send it to Priya for review by Wednesday the eleventh."
+    ],
+    [
+      "Marcus",
+      "One more issue. The security audit found that the password reset link stays valid for twenty four hours. The auditor recommends fifteen minutes."
+    ],
+    [
+      "Priya",
+      "That one is non negotiable. We reduce it to fifteen minutes before launch. Marcus, can your team do it?"
+    ],
+    [
+      "Marcus",
+      "Yes, it is a small change. I will have it merged by Monday the ninth of November. The risk is that some users on slow connections may need to request a second link."
+    ],
+    [
+      "Priya",
+      "Fine, we accept that risk. Hannah, please add a line about it to the help center. Last thing, who is booking the launch day war room?"
+    ],
+    [
+      "Hannah",
+      "I will book it for ten in the morning on the seventeenth, and I will share the invite today."
+    ],
+    [
+      "Priya",
+      "Great. To recap: ship on the seventeenth of November, pro plan goes to twelve dollars with six months grandfathering, and the reset link drops to fifteen minutes. Thanks everyone."
+    ]
   ],
   "groundTruth": {
     "decisions": [
-      "Ship version 3 on Tuesday 17 November, conditional on payments failure rate below 1% by Friday 13 November",
+      "Ship version 3 on Tuesday 17 November",
+      "Payments failure rate must be below 1% by Friday 13 November or the release is reconsidered",
       "Raise the pro plan from $9 to $12 per month",
       "Keep the $9 price for existing subscribers for six months",
       "Reduce password reset link validity from 24 hours to 15 minutes before launch"
     ],
     "actionItems": [
-      { "owner": "Marcus", "task": "Fix the payments retry bug and report the failure rate", "due": "Friday 13 November" },
-      { "owner": "Hannah", "task": "Draft the customer email about the grandfathered price and send to Priya for review", "due": "Wednesday 11 November" },
-      { "owner": "Marcus", "task": "Merge the password reset link change (15 minutes)", "due": "Monday 9 November" },
-      { "owner": "Hannah", "task": "Add a line about the second link request to the help center", "due": "" },
-      { "owner": "Hannah", "task": "Book the launch day war room and share the invite", "due": "Tuesday 17 November 10:00 / invite today" }
+      {
+        "owner": "Marcus",
+        "task": "Fix the payments retry bug and report the failure rate",
+        "due": "Friday 13 November"
+      },
+      {
+        "owner": "Hannah",
+        "task": "Draft the customer email about the grandfathered price and send to Priya for review",
+        "due": "Wednesday 11 November"
+      },
+      {
+        "owner": "Marcus",
+        "task": "Merge the password reset link change (15 minutes)",
+        "due": "Monday 9 November"
+      },
+      {
+        "owner": "Hannah",
+        "task": "Add a line about the second link request to the help center",
+        "due": ""
+      },
+      {
+        "owner": "Hannah",
+        "task": "Book the launch day war room and share the invite",
+        "due": "Tuesday 17 November 10:00 / invite today"
+      }
     ],
     "risks": [
       "Payments screen fails on about 4% of test runs",
       "Users on slow connections may need to request a second reset link"
     ],
-    "keyFacts": ["seventeenth of November", "four percent", "twelve dollars", "nine dollars", "six months", "fifteen minutes", "twenty four hours", "two percent"]
+    "keyFacts": [
+      "seventeenth of November",
+      "four percent",
+      "twelve dollars",
+      "nine dollars",
+      "six months",
+      "fifteen minutes",
+      "twenty four hours",
+      "two percent"
+    ]
   }
 }
