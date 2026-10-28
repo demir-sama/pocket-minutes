@@ -65,7 +65,9 @@ npm run build:replay    # (needs a running server) record a new replay session -
 npm run video           # re-record docs/demo.mp4 (see scripts/record-video.sh; needs Kokoro TTS for narration, Chrome, ffmpeg)
 ```
 
-Environment: `PORT` (4747), `POCKET_PROFILE` (`balanced`|`lite`), `POCKET_TMP`.
+Environment: `PORT` (4747), `POCKET_PROFILE` (`balanced`|`lite`), `POCKET_TMP`, `POCKET_THREADS` (cap on LLM threads).
+
+> **Busy machine tip.** llama.cpp's thread pool spins; if other programs are using several cores it can slow down dramatically (we measured a 4B generation going from ~54 s to >140 s with two cores busy). Setting `POCKET_THREADS` a couple below your core count (e.g. `POCKET_THREADS=6` on 8 cores) removed the slowdown in our test. The demo video was recorded that way because screen capture competes for CPU (the on-screen label shows the speed-up and the real compute time).
 
 ### Prove the offline claim yourself
 
