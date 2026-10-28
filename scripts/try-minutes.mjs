@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import { load, jsonCompletion, shutdown } from '../src/engine/qvac.mjs';
+import { PROFILES } from '../src/engine/models.mjs';
+import { buildMinutes } from '../src/engine/minutes.mjs';
+const prof = PROFILES[process.argv[2] ?? 'balanced'];
+const segs = JSON.parse(fs.readFileSync(process.argv[3] ?? 'spike/out-moss.json', 'utf8'));
+import('../src/engine/models.mjs'); const L = process.env.LLM ? { name: process.env.LLM, src: (await import('@qvac/sdk'))[process.env.LLM], type: 'llm' } : prof.llm;
+const id = await load('llm', L, { ctx_size: 8192, temp: 0 });
+const t0 = Date.now();
+const m = await buildMinutes({ segments: segs, ask: (name, system, user, schema) => jsonCompletion(id, { system, user, schema, name }), onStep: (s) => console.error(JSON.stringify(s), ((Date.now() - t0) / 1000).toFixed(0) + 's') });
+console.log(JSON.stringify(m, null, 1));
+await shutdown(); process.exit(0);
