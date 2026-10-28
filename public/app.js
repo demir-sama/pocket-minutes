@@ -313,7 +313,7 @@ function renderReceipt() {
     [nb.interfaces.length === 0 && na.interfaces.length === 0, 'Network interfaces up (besides loopback)', nb.interfaces.length ? nb.interfaces.map((i) => i.name).filter((v, i, a) => a.indexOf(v) === i).join(', ') : 'none'],
     [!nb.probe.online && !na.probe.online, 'Probe: DNS lookup of a public host', `${nb.probe.dns}`],
     [!nb.probe.online && !na.probe.online, 'Probe: TCP connect to 1.1.1.1:443', `${nb.probe.tcp}`],
-    [ext === 0, `External sockets during the run (${r.network.socketMonitor.startsWith('linux') ? '/proc/net' : 'unsupported'}, ${r.network.socketSamples} samples @ 200 ms)`, `${ext} seen`],
+    [ext === 0, `Non-local sockets opened by the app + QVAC worker (${r.network.socketMonitor.startsWith('linux') ? '/proc/net' : 'unsupported'}, ${r.network.socketSamples} samples @ 200 ms)`, `${ext} seen`],
     [!r.modelsDownloadedDuringJob, 'Model files downloaded during this run', r.modelsDownloadedDuringJob ? 'yes' : 'none — all cached'],
   ];
   pane.append(h('div', { class: 'ev' }, ...rows.map(([ok, label, val], i) => h('div', { style: `--i:${i}` }, h('span', { class: ok ? 'ok' : 'no' }, ok ? '✓' : '•'), h('span', {}, label), h('span', { class: 'val' }, val)))));

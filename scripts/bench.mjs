@@ -38,6 +38,7 @@ for (const key of profiles) {
 }
 fs.mkdirSync('eval', { recursive: true });
 fs.writeFileSync('eval/results.json', JSON.stringify(out, null, 2));
+fs.mkdirSync('public/replay', { recursive: true }); fs.writeFileSync('public/replay/bench.json', JSON.stringify(out));
 const pct = (x) => `${(x * 100).toFixed(1)}%`;
 const md = [`# Benchmark — Pocket Minutes`, '', `Sample: \`${sample}\` (${out.runs[0].audioSeconds}s, 3 speakers, synthetic TTS audio with a written ground truth). Device: ${out.device.cpu}, ${out.device.cores} cores, ${out.device.memGB} GB RAM, ${out.device.gpu}. QVAC SDK ${out.sdk}. Generated ${out.generatedAt}.`, '',
   '| Profile | Models | Audio→result | Real-time factor | Peak memory | Word error rate | Speakers found | Minutes recall | Minutes precision |', '|---|---|---|---|---|---|---|---|---|',

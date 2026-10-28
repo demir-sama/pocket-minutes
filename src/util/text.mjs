@@ -10,7 +10,7 @@ const ORD = { first: 1, second: 2, third: 3, fourth: 4, fifth: 5, sixth: 6, seve
 
 /** Normalise for comparison: lowercase, spoken numbers -> digits, drop punctuation. Used for WER and quote matching. */
 export function normalize(text) {
-  let t = String(text).toLowerCase().replace(/\$/g, ' dollars ').replace(/%/g, ' percent ');
+  let t = String(text).toLowerCase().replace(/\$\s?(\d[\d,]*(?:\.\d+)?)/g, ' $1 dollars ').replace(/\$/g, ' dollars ').replace(/%/g, ' percent ');
   t = t.replace(/(\d+)(st|nd|rd|th)\b/g, '$1');
   t = t.replace(/[^a-z0-9\s']/g, ' ').replace(/\b(\w+)'s\b/g, '$1s').replace(/'/g, '');
   const words = t.split(/\s+/).filter(Boolean);

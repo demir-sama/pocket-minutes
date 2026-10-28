@@ -46,7 +46,7 @@ async function route(req, res) {
   const url = new URL(req.url, 'http://x');
   const p = url.pathname;
   if (p === '/api/health') return json(res, 200, { mode: 'live', app: 'pocket-minutes', profile: PROFILE, profiles: Object.fromEntries(Object.entries(PROFILES).map(([k, v]) => [k, { label: v.label, llm: v.llm.name, asr: (v.asrFull ?? v.asrDraft).name }])), sdk: await sdkVersion(), node: process.version, langs: Object.fromEntries(Object.entries(LANGS).map(([k, v]) => [k, v.label])), samples: SAMPLES, device: { os: `${os.type()} ${os.release()}`, cores: os.cpus().length, memGB: +(os.totalmem() / 1e9).toFixed(1) } });
-  if (p === '/api/network') { const s = externalSockets(); return json(res, 200, { interfaces: interfaces(), sockets: s.sockets, monitor: s.supported ? 'linux' : 'unsupported', probe: url.searchParams.get('probe') ? await probe() : undefined, at: Date.now() }); }
+  if (p === '/api/network') { const s = externalSockets(); return json(res, 200, { interfaces: interfaces(), sockets: s.sockets, othersIgnored: s.othersIgnored ?? 0, monitor: s.supported ? 'linux' : 'unsupported', probe: url.searchParams.get('probe') ? await probe() : undefined, at: Date.now() }); }
   if (p === '/api/jobs' && req.method === 'POST') {
     try {
       let wavPath, name;

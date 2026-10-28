@@ -11,7 +11,7 @@
     "airgapped": "bash scripts/run-airgapped.sh",
     "models": "node scripts/download-models.mjs",
     "bench": "node scripts/bench.mjs",
-    "test": "node --test test/",
+    "test": "node --test test/*.test.mjs",
     "build:replay": "node scripts/build-replay.mjs",
     "video": "node scripts/make-video.mjs"
   },
