@@ -1,0 +1,86 @@
+[
+ {
+  "speaker": "Priya",
+  "start": 0.0,
+  "end": 12.89,
+  "text": "Okay, let's get started. This is the launch readiness sync for the Lumen mobile app, version three. We have three things to settle today: the release date, the pricing change, and the open security finding."
+ },
+ {
+  "speaker": "Marcus",
+  "start": 13.34,
+  "end": 26.78,
+  "text": "Thanks Priya. On the release date, engineering is confident about Tuesday, the seventeenth of November. The only blocker is the payments screen, which still fails on about four percent of test runs."
+ },
+ {
+  "speaker": "Elena",
+  "start": 27.23,
+  "end": 35.35,
+  "text": "Support can handle that date. But I want a decision on one thing: we should not launch on a Friday, and the seventeenth is a Tuesday, so that works for me."
+ },
+ {
+  "speaker": "Priya",
+  "start": 35.8,
+  "end": 48.37,
+  "text": "Good. So the decision is, we ship version three on Tuesday the seventeenth of November, as long as the payments failure rate drops below one percent by the Friday before. Marcus, you own that."
+ },
+ {
+  "speaker": "Marcus",
+  "start": 48.82,
+  "end": 55.9,
+  "text": "Agreed. I will fix the payments retry bug and report the failure rate to the team by Friday the thirteenth."
+ },
+ {
+  "speaker": "Elena",
+  "start": 56.35,
+  "end": 66.16,
+  "text": "Now pricing. The proposal is to raise the pro plan from nine dollars to twelve dollars a month. Early survey data shows only two percent of users would cancel at that price."
+ },
+ {
+  "speaker": "Priya",
+  "start": 66.61,
+  "end": 75.11,
+  "text": "That's acceptable to me. But I don't want existing customers surprised, so we keep the nine dollar price for current subscribers for six months."
+ },
+ {
+  "speaker": "Elena",
+  "start": 75.56,
+  "end": 82.53,
+  "text": "Understood. I will draft the customer email about the grandfathered price and send it to Priya for review by Wednesday the eleventh."
+ },
+ {
+  "speaker": "Marcus",
+  "start": 82.98,
+  "end": 92.67,
+  "text": "One more issue. The security audit found that the password reset link stays valid for twenty four hours. The auditor recommends fifteen minutes."
+ },
+ {
+  "speaker": "Priya",
+  "start": 93.12,
+  "end": 99.6,
+  "text": "That one is non negotiable. We reduce it to fifteen minutes before launch. Marcus, can your team do it?"
+ },
+ {
+  "speaker": "Marcus",
+  "start": 100.05,
+  "end": 111.15,
+  "text": "Yes, it is a small change. I will have it merged by Monday the ninth of November. The risk is that some users on slow connections may need to request a second link."
+ },
+ {
+  "speaker": "Priya",
+  "start": 111.6,
+  "end": 119.74,
+  "text": "Fine, we accept that risk. Elena, please add a line about it to the help center. Last thing, who is booking the launch day war room?"
+ },
+ {
+  "speaker": "Elena",
+  "start": 120.19,
+  "end": 124.63,
+  "text": "I will book it for ten in the morning on the seventeenth, and I will share the invite today."
+ },
+ {
+  "speaker": "Priya",
+  "start": 125.08,
+  "end": 136.77,
+  "text": "Great. To recap: ship on the seventeenth of November, pro plan goes to twelve dollars with six months grandfathering, and the reset link drops to fifteen minutes. Thanks everyone."
+ }
+]

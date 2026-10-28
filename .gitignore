@@ -1,0 +1,8 @@
+node_modules/
+spike/
+.env*
+*.log
+.qvac-data/
+tmp/
+.DS_Store
+.vercel

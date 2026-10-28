@@ -1,0 +1,26 @@
+{
+  "name": "pocket-minutes",
+  "version": "1.0.0",
+  "description": "Pocket Minutes — meeting minutes that never leave your device. Diarized transcription, structured minutes, Q&A and translation, all on Tether QVAC with the network unplugged.",
+  "type": "module",
+  "license": "MIT",
+  "private": false,
+  "engines": { "node": ">=22.17" },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "airgapped": "bash scripts/run-airgapped.sh",
+    "models": "node scripts/download-models.mjs",
+    "bench": "node scripts/bench.mjs",
+    "test": "node --test test/",
+    "build:replay": "node scripts/build-replay.mjs",
+    "video": "node scripts/make-video.mjs"
+  },
+  "dependencies": {
+    "@qvac/sdk": "0.22.0"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.50.0"
+  },
+  "author": "Demir <demirsamahash@gmail.com>",
+  "repository": { "type": "git", "url": "git+https://github.com/demir-sama/pocket-minutes.git" }
+}
