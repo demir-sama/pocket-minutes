@@ -4,8 +4,9 @@
 # google-chrome, ffmpeg, Linux unprivileged user namespaces.  Usage: KOKORO_DIR=... AUDIO_DIR=/tmp/pm-tts scripts/record-video.sh
 set -euo pipefail
 cd "$(dirname "$0")/.."
-# On an 8-core box, pin inference and the recorder apart so screen capture cannot starve the model:
-#   SRV_CPUS=0-5 REC_CPUS=6,7 scripts/record-video.sh
+# Screen capture competes with inference for CPU. llama.cpp's spinning thread pool collapses when it has fewer free cores than
+# threads, so cap the LLM threads below the core count while recording (POCKET_THREADS, default cores-2).
+export POCKET_THREADS=${POCKET_THREADS:-$(( $(nproc) > 4 ? $(nproc) - 2 : 2 ))}
 exec unshare -rn bash -c '
   ip link set lo up
   POCKET_PROFILE=balanced PORT=4747 ${SRV_CPUS:+taskset -c $SRV_CPUS} node src/server.mjs > /tmp/pm-video-server.log 2>&1 &

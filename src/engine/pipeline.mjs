@@ -23,7 +23,7 @@ export class Job extends EventEmitter {
   }
 }
 
-export async function runJob(job, { llmConfig = { ctx_size: 8192, temp: 0 } } = {}) {
+export async function runJob(job, { llmConfig = { ctx_size: 8192, temp: 0, ...(process.env.POCKET_THREADS ? { threads: +process.env.POCKET_THREADS } : {}) } } = {}) {
   const P = job.profile;
   const timings = {};
   const downloads = [];
