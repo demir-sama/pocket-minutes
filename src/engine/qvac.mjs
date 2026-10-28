@@ -90,3 +90,17 @@ export async function* streamCompletion(modelId, history) {
 }
 
 export { q, LANGS };
+
+/** Kernel-tracked peak resident memory (VmHWM) of this process and its children, in MB. Linux only; null elsewhere. */
+export function peakMB() {
+  try {
+    let kb = 0;
+    for (const d of fs.readdirSync('/proc')) {
+      if (!/^\d+$/.test(d)) continue;
+      let st; try { st = fs.readFileSync(`/proc/${d}/status`, 'utf8'); } catch { continue; }
+      const ppid = +(st.match(/^PPid:\s+(\d+)/m)?.[1] ?? 0);
+      if (+d === process.pid || ppid === process.pid) kb += +(st.match(/^VmHWM:\s+(\d+)/m)?.[1] ?? 0);
+    }
+    return Math.round(kb / 1024);
+  } catch { return null; }
+}
