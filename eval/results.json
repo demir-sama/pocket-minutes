@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T07:43:21.569Z",
+  "generatedAt": "2026-10-28T07:56:59.519Z",
   "sample": "launch-sync",
   "sdk": "0.22.0",
   "device": {
@@ -43,21 +43,21 @@
         }
       ],
       "audioSeconds": 137.12,
-      "totalMs": 167323,
-      "realtimeFactor": 1.22,
+      "totalMs": 160604,
+      "realtimeFactor": 1.17,
       "stageMs": {
-        "draft": 5032,
-        "diarize": 62040,
-        "minutes": 89034,
-        "index": 3125
+        "draft": 5002,
+        "diarize": 61943,
+        "minutes": 82668,
+        "index": 2963
       },
-      "peakResidentMB": 8148,
+      "peakResidentMB": 8151,
       "asr": {
         "draft": {
           "model": "WHISPER_EN_BASE_Q8_0",
-          "wer": 0.0265,
+          "wer": 0.0079,
           "refWords": 378,
-          "edits": 10
+          "edits": 3
         },
         "final": {
           "model": "MOSS_TRANSCRIBE_DIARIZE_Q8_0",
@@ -79,26 +79,32 @@
       },
       "minutes": {
         "decisions": {
-          "recall": 0.5,
-          "precision": 0.4,
-          "hit": 2,
-          "gt": 4,
-          "extracted": 5,
+          "recall": 1,
+          "precision": 1,
+          "precHit": 4,
+          "hit": 5,
+          "gt": 5,
+          "extracted": 4,
           "detail": [
             {
-              "gt": "Ship version 3 on Tuesday 17 November, conditional on payments failure rate below 1% by Friday 13 November",
-              "matched": null,
-              "score": 0.38
+              "gt": "Ship version 3 on Tuesday 17 November",
+              "matched": "Launch version three on Tuesday, the seventeenth of November.",
+              "score": 0.8
+            },
+            {
+              "gt": "Payments failure rate must be below 1% by Friday 13 November or the release is reconsidered",
+              "matched": "The payment's failure rate must drop below one percent by Friday, the thirteenth.",
+              "score": 0.73
             },
             {
               "gt": "Raise the pro plan from $9 to $12 per month",
-              "matched": "The pro plan price is raised to twelve dollars a month with a six-month grandfathering period for existing subscribers.",
+              "matched": "The pro plan price is increased to twelve dollars a month with a six-month grandfathering period for existing subscribers.",
               "score": 0.71
             },
             {
               "gt": "Keep the $9 price for existing subscribers for six months",
-              "matched": null,
-              "score": 0.17
+              "matched": "The pro plan price is increased to twelve dollars a month with a six-month grandfathering period for existing subscribers.",
+              "score": 0.67
             },
             {
               "gt": "Reduce password reset link validity from 24 hours to 15 minutes before launch",
@@ -108,11 +114,12 @@
           ]
         },
         "actions": {
-          "recall": 0.6,
+          "recall": 0.8,
           "precision": 1,
-          "hit": 3,
+          "precHit": 4,
+          "hit": 4,
           "gt": 5,
-          "extracted": 3,
+          "extracted": 4,
           "detail": [
             {
               "gt": "Fix the payments retry bug and report the failure rate",
@@ -126,13 +133,13 @@
             },
             {
               "gt": "Merge the password reset link change (15 minutes)",
-              "matched": null,
-              "score": 0
+              "matched": "Have the password reset link duration reduced to fifteen minutes before launch",
+              "score": 0.71
             },
             {
               "gt": "Add a line about the second link request to the help center",
               "matched": null,
-              "score": 0
+              "score": 0.14
             },
             {
               "gt": "Book the launch day war room and share the invite",
@@ -142,33 +149,35 @@
           ]
         },
         "risks": {
-          "recall": 0.5,
-          "precision": 0.25,
-          "hit": 1,
+          "recall": 1,
+          "precision": 0.6666666666666666,
+          "precHit": 2,
+          "hit": 2,
           "gt": 2,
-          "extracted": 4,
+          "extracted": 3,
           "detail": [
             {
               "gt": "Payments screen fails on about 4% of test runs",
-              "matched": "The payment screen fails on about four percent of test runs, which could delay the release.",
+              "matched": "The payment screen fails on about four percent of test runs.",
               "score": 0.86
             },
             {
               "gt": "Users on slow connections may need to request a second reset link",
-              "matched": null,
-              "score": 0.13
+              "matched": "Some users on slow connections may need to request a second link.",
+              "score": 0.88
             }
           ]
         },
         "overall": {
-          "recall": 0.5454545454545454,
-          "precision": 0.5,
-          "hit": 6,
-          "gt": 11,
-          "extracted": 12
+          "recall": 0.9166666666666666,
+          "precision": 0.9090909090909091,
+          "hit": 11,
+          "precHit": 10,
+          "gt": 12,
+          "extracted": 11
         }
       },
-      "groundedDrops": 4
+      "groundedDrops": 2
     },
     {
       "profile": "lite",
@@ -196,68 +205,72 @@
         }
       ],
       "audioSeconds": 137.12,
-      "totalMs": 45044,
-      "realtimeFactor": 0.33,
+      "totalMs": 46420,
+      "realtimeFactor": 0.34,
       "stageMs": {
-        "draft": 4517,
-        "minutes": 31950,
-        "index": 3091
+        "draft": 4515,
+        "minutes": 34172,
+        "index": 2928
       },
-      "peakResidentMB": 5002,
+      "peakResidentMB": 5074,
       "asr": {
         "draft": {
           "model": "WHISPER_EN_BASE_Q8_0",
-          "wer": 0.0265,
+          "wer": 0.0079,
           "refWords": 378,
-          "edits": 10
+          "edits": 3
         }
       },
       "keyFacts": {
-        "kept": 6,
+        "kept": 8,
         "total": 8,
-        "missing": [
-          "twelve dollars",
-          "nine dollars"
-        ]
+        "missing": []
       },
       "speakersFound": 1,
       "speakerNames": {},
       "minutes": {
         "decisions": {
-          "recall": 0.5,
-          "precision": 0.5,
-          "hit": 2,
-          "gt": 4,
-          "extracted": 4,
+          "recall": 0.2,
+          "precision": 1,
+          "precHit": 1,
+          "hit": 1,
+          "gt": 5,
+          "extracted": 1,
           "detail": [
             {
-              "gt": "Ship version 3 on Tuesday 17 November, conditional on payments failure rate below 1% by Friday 13 November",
+              "gt": "Ship version 3 on Tuesday 17 November",
+              "matched": "We ship version 3 on Tuesday the 17th of November.",
+              "score": 1
+            },
+            {
+              "gt": "Payments failure rate must be below 1% by Friday 13 November or the release is reconsidered",
               "matched": null,
-              "score": 0.38
+              "score": 0.09
             },
             {
               "gt": "Raise the pro plan from $9 to $12 per month",
-              "matched": "The pro plan is raised from $9 to $12 per month.",
-              "score": 0.86
+              "matched": null,
+              "score": 0
             },
             {
               "gt": "Keep the $9 price for existing subscribers for six months",
-              "matched": "Current subscribers will continue to be charged $9 for six months.",
-              "score": 0.5
+              "matched": null,
+              "score": 0
             },
             {
               "gt": "Reduce password reset link validity from 24 hours to 15 minutes before launch",
               "matched": null,
-              "score": 0.45
+              "score": 0
             }
           ]
         },
         "actions": {
           "recall": 0,
           "precision": 0,
+          "precHit": 0,
           "hit": 0,
           "gt": 5,
-          "extracted": 6,
+          "extracted": 3,
           "detail": [
             {
               "gt": "Fix the payments retry bug and report the failure rate",
@@ -287,33 +300,35 @@
           ]
         },
         "risks": {
-          "recall": 1,
-          "precision": 0.6666666666666666,
-          "hit": 2,
+          "recall": 0.5,
+          "precision": 1,
+          "precHit": 1,
+          "hit": 1,
           "gt": 2,
-          "extracted": 3,
+          "extracted": 1,
           "detail": [
             {
               "gt": "Payments screen fails on about 4% of test runs",
-              "matched": "The payment screen fails on about 4% of test runs, which could impact the release date.",
-              "score": 0.86
+              "matched": null,
+              "score": 0
             },
             {
               "gt": "Users on slow connections may need to request a second reset link",
-              "matched": "Some users on slow connections may need to request a second link, which introduces a risk.",
+              "matched": "The risk is that some users on slow connections may need to request a second link.",
               "score": 0.88
             }
           ]
         },
         "overall": {
-          "recall": 0.36363636363636365,
-          "precision": 0.3076923076923077,
-          "hit": 4,
-          "gt": 11,
-          "extracted": 13
+          "recall": 0.16666666666666666,
+          "precision": 0.4,
+          "hit": 2,
+          "precHit": 2,
+          "gt": 12,
+          "extracted": 5
         }
       },
-      "groundedDrops": 3
+      "groundedDrops": 5
     }
   ]
 }

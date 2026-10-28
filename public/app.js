@@ -22,7 +22,7 @@ const audio = $('#audio');
   if (api.mode === 'replay') {
     $('#replay-bar').hidden = false;
     const real = api.s.events.at(-1).t;
-    $('#replay-text').textContent = `The AI cannot run inside a web page by design — this page replays a real run of the local app (recorded ${new Date(api.s.recordedAt).toISOString().slice(0, 10)}, ${mmss(real)} of real compute, waits shortened). The receipt, transcript, answers and translations are real recorded outputs.`;
+    $('#replay-text').textContent = `No cloud AI is used here. The offline AI (Tether QVAC) runs only on your own machine; this hosted page just replays a real run of that local app (recorded ${new Date(api.s.recordedAt).toISOString().slice(0, 10)}, ${mmss(real)} of real compute, waits shortened). Transcript, minutes, answers, translations and the Offline Receipt are recorded outputs of that local run, not computed by this site.`;
     $('#upload-text').textContent = 'Upload (local app only)'; $('#btn-upload').setAttribute('aria-disabled', 'true');
     $('#drop-hint').innerHTML = 'Hosted replay mode: the sample meeting is replayed. <a href="https://github.com/demir-sama/pocket-minutes" target="_blank" rel="noopener">Clone the repo</a> to process your own audio.';
   }
@@ -72,8 +72,8 @@ function setupNet() {
       S.net = d;
       const ext = d.sockets?.length ?? 0, ifs = d.interfaces?.length ?? 0;
       pill.classList.toggle('bad', ext > 0); pill.classList.toggle('warn', ext === 0 && ifs > 0);
-      txt.textContent = d.recorded ? `${d.interfaces.length === 0 ? 'offline' : 'network up'} · ${ext} external connections · recorded` : ext > 0 ? `${ext} external connection${ext > 1 ? 's' : ''}!` : ifs === 0 ? 'offline · 0 external connections' : `network up · 0 external connections`;
-      pill.title = ifs === 0 ? 'No network interface is up except loopback.' : `Network interface(s) up: ${d.interfaces.map((i) => i.name).join(', ')}. Pocket Minutes opens no external connection; run "npm run airgapped" to remove the network entirely.`;
+      txt.textContent = d.recorded ? `recorded local run: ${d.interfaces.length === 0 ? 'offline' : 'network up'} · ${ext} external connections` : ext > 0 ? `${ext} external connection${ext > 1 ? 's' : ''}!` : ifs === 0 ? 'offline · 0 external connections' : `network up · 0 external connections`;
+      pill.title = S.api.mode === 'replay' ? 'This pill shows the network state recorded during the local run (inside a no-network sandbox). It says nothing about this web page.' : ifs === 0 ? 'No network interface is up except loopback.' : `Network interface(s) up: ${d.interfaces.map((i) => i.name).join(', ')}. Pocket Minutes opens no external connection; run "npm run airgapped" to remove the network entirely.`;
     } catch { txt.textContent = 'monitor unavailable'; }
     if (S.api.mode === 'live') setTimeout(poll, 1500);
   };
