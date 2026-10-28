@@ -11,3 +11,11 @@ Started Oct 28 2026 08:10 WAT. Deadline Oct 30 15:00 WAT (DoraHacks, QVAC hackat
 - models cache ~/.qvac
 ## Decision
 - Project: Pocket Minutes (Cloud to Pocket track): meeting recorder/notes (ASR + LLM + embeddings RAG + NMT) fully local.
+
+## Progress (Oct 28, WAT)
+- Engine, server, UI, 21 tests, real OFFLINE replay recording (public/replay/session.json) done.
+- GitHub: https://github.com/demir-sama/pocket-minutes (public, main).
+- Vercel: team SAMA, project pocket-minutes (git-linked, auto-deploys on push). URL https://pocket-minutes-sama-5806.vercel.app ; Vercel Authentication OFF (verified 200).
+- Hosted page = recorded replay of a real offline run (banner says so). QVAC cannot run on Vercel.
+- Peak memory: balanced ~8 GB (MOSS), lite ~4.9 GB — state honestly.
+- TODO: bench re-run (eval/results.*, public/replay/bench.json), README, docs/BUIDL.md, video (docs/demo.mp4), final report.
