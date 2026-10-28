@@ -37,14 +37,15 @@ for (const key of profiles) {
   await shutdown();
 }
 fs.mkdirSync('eval', { recursive: true });
-fs.writeFileSync('eval/results.json', JSON.stringify(out, null, 2));
-fs.mkdirSync('public/replay', { recursive: true }); fs.writeFileSync('public/replay/bench.json', JSON.stringify(out));
+const primary = sample === 'launch-sync'; const suffix = primary ? '' : `-${sample}`;
+fs.writeFileSync(`eval/results${suffix}.json`, JSON.stringify(out, null, 2));
+if (primary) { fs.mkdirSync('public/replay', { recursive: true }); fs.writeFileSync('public/replay/bench.json', JSON.stringify(out)); }
 const pct = (x) => `${(x * 100).toFixed(1)}%`;
 const md = [`# Benchmark — Pocket Minutes`, '', `Sample: \`${sample}\` (${out.runs[0].audioSeconds}s, 3 speakers, synthetic TTS audio with a written ground truth). Device: ${out.device.cpu}, ${out.device.cores} cores, ${out.device.memGB} GB RAM, ${out.device.gpu}. QVAC SDK ${out.sdk}. Generated ${out.generatedAt}.`, '',
   '| Profile | Models | Audio→result | Real-time factor | Peak memory | Word error rate | Speakers found | Minutes recall | Minutes precision |', '|---|---|---|---|---|---|---|---|---|',
   ...out.runs.map((r) => `| ${r.profile} | ${r.models.map((m) => m.name).join(', ')} | ${(r.totalMs / 1000).toFixed(0)} s | ${r.realtimeFactor}× | ${(r.peakResidentMB / 1024).toFixed(1)} GB | ${pct((r.asr.final ?? r.asr.draft).wer)} | ${r.speakersFound} | ${pct(r.minutes.overall.recall)} (${r.minutes.overall.hit}/${r.minutes.overall.gt}) | ${pct(r.minutes.overall.precision)} (${r.minutes.overall.precHit}/${r.minutes.overall.extracted}) |`), '',
   '## Detail', ...out.runs.flatMap((r) => [`### ${r.profile}`, `- Stage times (ms): ${JSON.stringify(r.stageMs)}`, `- Draft transcript WER: ${pct(r.asr.draft.wer)} (${r.asr.draft.model})${r.asr.final ? `; diarized transcript WER: ${pct(r.asr.final.wer)} (${r.asr.final.model})` : ''}`, `- Key facts kept in transcript: ${r.keyFacts.kept}/${r.keyFacts.total}${r.keyFacts.missing.length ? ` (missing: ${r.keyFacts.missing.join(', ')})` : ''}`, `- Decisions ${r.minutes.decisions.hit}/${r.minutes.decisions.gt}, actions ${r.minutes.actions.hit}/${r.minutes.actions.gt}, risks ${r.minutes.risks.hit}/${r.minutes.risks.gt}; ungrounded items dropped by the verifier: ${r.groundedDrops}`, '']),
   '## Method & caveats', '- WER: Levenshtein over normalised words (numbers/ordinals spoken↔digits) against the script the TTS voices read.', '- Recall/precision: each ground-truth item is matched to its best extracted item (a model may merge related statements, so many-to-one is allowed) by content-word coverage (≥50%; actions also need the right owner). Deterministic; no LLM judge. See `src/eval.mjs`.', '- One 2-minute synthetic meeting is a smoke-level benchmark, not a leaderboard claim. Real meetings are noisier.', '- Cloud tools are not benchmarked here. The honest trade-off is qualitative: they may be more accurate on hard audio, but the recording leaves the device; Pocket Minutes never sends it anywhere (see the Offline Receipt).', ''].join('\n');
-fs.writeFileSync('eval/results.md', md);
+fs.writeFileSync(`eval/results${suffix}.md`, md);
 console.log(md);
 process.exit(0);

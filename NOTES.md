@@ -19,3 +19,10 @@ Started Oct 28 2026 08:10 WAT. Deadline Oct 30 15:00 WAT (DoraHacks, QVAC hackat
 - Hosted page = recorded replay of a real offline run (banner says so). QVAC cannot run on Vercel.
 - Peak memory: balanced ~8 GB (MOSS), lite ~4.9 GB — state honestly.
 - TODO: bench re-run (eval/results.*, public/replay/bench.json), README, docs/BUIDL.md, video (docs/demo.mp4), final report.
+
+## Progress (Oct 28, later, WAT)
+- docs/demo.mp4 recorded (170 s, 1080p, Kokoro narration): live app + Chrome inside `unshare -rn`, process stage sped up 8x with on-screen label. Re-record: `npm run video` (scripts/record-video.sh → make-video.mjs → compose-video.mjs); narration in scripts/video/narration.json.
+- Found+documented: llama.cpp spin-wait collapses when other processes use cores → `POCKET_THREADS` env (LLM threads) added; video recorded with POCKET_THREADS=6.
+- README + docs/BUIDL.md written. Bench rerun: balanced 161 s, 8.0 GB, recall 11/12, precision 10/11; lite 2/12.
+- Held-out sample samples/summit-planning (written after freeze) benchmarked → eval/results-summit-planning.md (see README for the number).
+- Hosted replay verified on Vercel (200, banner, receipt "recorded local run").

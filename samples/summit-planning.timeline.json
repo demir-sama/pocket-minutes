@@ -1,0 +1,98 @@
+[
+ {
+  "speaker": "Sofia",
+  "start": 0.0,
+  "end": 9.0,
+  "text": "Alright, let's start. This is the planning check-in for the Harbor Data Summit. Today we need to confirm the venue, the speaker lineup, and the catering budget."
+ },
+ {
+  "speaker": "Ben",
+  "start": 9.45,
+  "end": 25.07,
+  "text": "Thanks Sofia. On the venue, Riverside Hall quoted us eleven thousand dollars for two days. The Dockside Center is cheaper at eight thousand five hundred, but it only holds two hundred people, and we already have two hundred forty registrations."
+ },
+ {
+  "speaker": "Tara",
+  "start": 25.52,
+  "end": 30.4,
+  "text": "Then Dockside is out. I would rather pay the extra for Riverside than turn people away."
+ },
+ {
+  "speaker": "Sofia",
+  "start": 30.85,
+  "end": 35.44,
+  "text": "Agreed. The decision is that we book Riverside Hall for the fourth and fifth of June."
+ },
+ {
+  "speaker": "Ben",
+  "start": 35.89,
+  "end": 42.14,
+  "text": "I will send the signed contract and the deposit by Thursday. The deposit is thirty percent."
+ },
+ {
+  "speaker": "Sofia",
+  "start": 42.59,
+  "end": 44.92,
+  "text": "Good. Now speakers. Tara, where are we?"
+ },
+ {
+  "speaker": "Tara",
+  "start": 45.37,
+  "end": 60.19,
+  "text": "Four of the six keynotes are confirmed. The open slots are the closing keynote and the privacy engineering workshop. I will email Doctor Alvarez, our first choice for the closing, by Monday. If she declines, we have no closing keynote at all, so that is a risk."
+ },
+ {
+  "speaker": "Sofia",
+  "start": 60.64,
+  "end": 62.86,
+  "text": "Understood. Ben, what about catering?"
+ },
+ {
+  "speaker": "Ben",
+  "start": 63.31,
+  "end": 77.09,
+  "text": "The caterer needs a final headcount by the twentieth of May, and each lunch is thirty two dollars. For two hundred forty people over two days that is over fifteen thousand dollars, and our food budget is twelve thousand."
+ },
+ {
+  "speaker": "Sofia",
+  "start": 77.54,
+  "end": 80.74,
+  "text": "So we are about three thousand dollars over. Options?"
+ },
+ {
+  "speaker": "Tara",
+  "start": 81.19,
+  "end": 85.1,
+  "text": "We could drop the lunch on the second day and offer coffee and snacks instead."
+ },
+ {
+  "speaker": "Sofia",
+  "start": 85.55,
+  "end": 91.95,
+  "text": "I do not love it, but let's decide: day two gets snacks instead of lunch. That brings catering under budget."
+ },
+ {
+  "speaker": "Ben",
+  "start": 92.4,
+  "end": 98.8,
+  "text": "Then I will ask the caterer to re-quote on that basis, and I will have the new number by next Wednesday."
+ },
+ {
+  "speaker": "Sofia",
+  "start": 99.25,
+  "end": 109.79,
+  "text": "Great. One more thing: registration closes in ten days, and the website still shows the old venue. Tara, can you update the website today and post the venue announcement?"
+ },
+ {
+  "speaker": "Tara",
+  "start": 110.24,
+  "end": 113.39,
+  "text": "Yes, I will update the website and post the announcement today."
+ },
+ {
+  "speaker": "Sofia",
+  "start": 113.84,
+  "end": 115.96,
+  "text": "Perfect. We will meet again on Monday."
+ }
+]

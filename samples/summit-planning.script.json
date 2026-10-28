@@ -1,0 +1,40 @@
+{
+  "title": "Harbor Data Summit planning check-in",
+  "note": "HELD-OUT sample: written after the pipeline and prompts were frozen, never used to tune anything. Fictional meeting, synthetic voices (Kokoro TTS). No real people or companies.",
+  "voices": { "Sofia": "af_sarah", "Ben": "bm_george", "Tara": "bf_emma" },
+  "turns": [
+    ["Sofia", "Alright, let's start. This is the planning check-in for the Harbor Data Summit. Today we need to confirm the venue, the speaker lineup, and the catering budget."],
+    ["Ben", "Thanks Sofia. On the venue, Riverside Hall quoted us eleven thousand dollars for two days. The Dockside Center is cheaper at eight thousand five hundred, but it only holds two hundred people, and we already have two hundred forty registrations."],
+    ["Tara", "Then Dockside is out. I would rather pay the extra for Riverside than turn people away."],
+    ["Sofia", "Agreed. The decision is that we book Riverside Hall for the fourth and fifth of June."],
+    ["Ben", "I will send the signed contract and the deposit by Thursday. The deposit is thirty percent."],
+    ["Sofia", "Good. Now speakers. Tara, where are we?"],
+    ["Tara", "Four of the six keynotes are confirmed. The open slots are the closing keynote and the privacy engineering workshop. I will email Doctor Alvarez, our first choice for the closing, by Monday. If she declines, we have no closing keynote at all, so that is a risk."],
+    ["Sofia", "Understood. Ben, what about catering?"],
+    ["Ben", "The caterer needs a final headcount by the twentieth of May, and each lunch is thirty two dollars. For two hundred forty people over two days that is over fifteen thousand dollars, and our food budget is twelve thousand."],
+    ["Sofia", "So we are about three thousand dollars over. Options?"],
+    ["Tara", "We could drop the lunch on the second day and offer coffee and snacks instead."],
+    ["Sofia", "I do not love it, but let's decide: day two gets snacks instead of lunch. That brings catering under budget."],
+    ["Ben", "Then I will ask the caterer to re-quote on that basis, and I will have the new number by next Wednesday."],
+    ["Sofia", "Great. One more thing: registration closes in ten days, and the website still shows the old venue. Tara, can you update the website today and post the venue announcement?"],
+    ["Tara", "Yes, I will update the website and post the announcement today."],
+    ["Sofia", "Perfect. We will meet again on Monday."]
+  ],
+  "groundTruth": {
+    "decisions": [
+      "Book Riverside Hall for the fourth and fifth of June",
+      "Day two gets coffee and snacks instead of lunch to bring catering under budget"
+    ],
+    "actionItems": [
+      { "owner": "Ben", "task": "Send the signed Riverside Hall contract and the deposit", "due": "Thursday" },
+      { "owner": "Tara", "task": "Email Doctor Alvarez about the closing keynote", "due": "Monday" },
+      { "owner": "Ben", "task": "Ask the caterer to re-quote without day-two lunch", "due": "next Wednesday" },
+      { "owner": "Tara", "task": "Update the website and post the venue announcement", "due": "today" }
+    ],
+    "risks": [
+      "If Doctor Alvarez declines there is no closing keynote",
+      "Catering would exceed the food budget by about three thousand dollars"
+    ],
+    "keyFacts": ["eleven thousand dollars", "eight thousand five hundred", "two hundred forty", "thirty percent", "thirty two dollars", "twelve thousand", "twentieth of May", "fourth and fifth of June"]
+  }
+}
