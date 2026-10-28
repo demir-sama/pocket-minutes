@@ -12,7 +12,7 @@
   "text": "Thanks Priya. On the release date, engineering is confident about Tuesday, the seventeenth of November. The only blocker is the payments screen, which still fails on about four percent of test runs."
  },
  {
-  "speaker": "Elena",
+  "speaker": "Hannah",
   "start": 27.23,
   "end": 35.35,
   "text": "Support can handle that date. But I want a decision on one thing: we should not launch on a Friday, and the seventeenth is a Tuesday, so that works for me."
@@ -30,7 +30,7 @@
   "text": "Agreed. I will fix the payments retry bug and report the failure rate to the team by Friday the thirteenth."
  },
  {
-  "speaker": "Elena",
+  "speaker": "Hannah",
   "start": 56.35,
   "end": 66.16,
   "text": "Now pricing. The proposal is to raise the pro plan from nine dollars to twelve dollars a month. Early survey data shows only two percent of users would cancel at that price."
@@ -42,7 +42,7 @@
   "text": "That's acceptable to me. But I don't want existing customers surprised, so we keep the nine dollar price for current subscribers for six months."
  },
  {
-  "speaker": "Elena",
+  "speaker": "Hannah",
   "start": 75.56,
   "end": 82.53,
   "text": "Understood. I will draft the customer email about the grandfathered price and send it to Priya for review by Wednesday the eleventh."
@@ -68,19 +68,19 @@
  {
   "speaker": "Priya",
   "start": 111.6,
-  "end": 119.74,
-  "text": "Fine, we accept that risk. Elena, please add a line about it to the help center. Last thing, who is booking the launch day war room?"
+  "end": 119.64,
+  "text": "Fine, we accept that risk. Hannah, please add a line about it to the help center. Last thing, who is booking the launch day war room?"
  },
  {
-  "speaker": "Elena",
-  "start": 120.19,
-  "end": 124.63,
+  "speaker": "Hannah",
+  "start": 120.09,
+  "end": 124.53,
   "text": "I will book it for ten in the morning on the seventeenth, and I will share the invite today."
  },
  {
   "speaker": "Priya",
-  "start": 125.08,
-  "end": 136.77,
+  "start": 124.98,
+  "end": 136.67,
   "text": "Great. To recap: ship on the seventeenth of November, pro plan goes to twelve dollars with six months grandfathering, and the reset link drops to fifteen minutes. Thanks everyone."
  }
 ]

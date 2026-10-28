@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 // Thin wrapper over @qvac/sdk: model residency, a serialised job queue, and timing/memory telemetry.
 import * as q from '@qvac/sdk';
 import { LANGS } from './models.mjs';
@@ -37,7 +38,20 @@ export async function shutdown() {
   await q.close().catch(() => {});
 }
 
-export const rssMB = () => Math.round(process.memoryUsage().rss / 1e6);
+/** Resident memory of this process plus its child processes (the QVAC bare worker holds the models). */
+export function rssMB() {
+  let kb = 0;
+  try {
+    const mine = process.pid;
+    for (const d of fs.readdirSync('/proc')) {
+      if (!/^\d+$/.test(d)) continue;
+      let st; try { st = fs.readFileSync(`/proc/${d}/status`, 'utf8'); } catch { continue; }
+      const ppid = +(st.match(/^PPid:\s+(\d+)/m)?.[1] ?? 0);
+      if (+d === mine || ppid === mine) kb += +(st.match(/^VmRSS:\s+(\d+)/m)?.[1] ?? 0);
+    }
+  } catch { return Math.round(process.memoryUsage().rss / 1e6); }
+  return Math.round(kb / 1024);
+}
 
 /** Structured JSON completion constrained by a JSON schema (llama.cpp GBNF under the hood). */
 export async function jsonCompletion(modelId, { system, user, schema, name = 'out' }) {
